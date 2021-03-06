@@ -2,6 +2,7 @@
 ignored:
   - DL3029
   - DL3016
+  - DL3015
 
 trustedRegistries:
   - docker.io

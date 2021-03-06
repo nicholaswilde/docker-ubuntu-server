@@ -8,9 +8,10 @@ vars:
     sh: "date -u +%Y-%m-%dT%H%M%S%Z"
   BUILD_ARGS: >-
     --build-arg VERSION={{ .VERSION }}
-    --build-arg CHECKSUM={{ .CHECKSUM }}
     --build-arg BUILD_DATE={{ .BUILD_DATE }}
-  TAG_VERSION: "{{ .NS }}/{{ .IMAGE_NAME }}:{{ .VERSION }}-ls{{ .LS }}"
+    --build-arg UBUNTU_USER={{ .UBUNTU_USER }}
+    --build-arg UBUNTU_PASSWORD={{ .UBUNTU_PASSWORD }}
+  TAG_VERSION: "{{ .NS }}/{{ .IMAGE_NAME }}:{{ .VERSION }}"
   TAG_LATEST: "{{ .NS }}/{{ .IMAGE_NAME }}:latest"
   CONTAINER: "{{ .CONTAINER_NAME }}-{{ .CONTAINER_INSTANCE }}"
   RUN: "docker run -it --rm --name {{ .CONTAINER_NAME }}-{{ .CONTAINER_INSTANCE }} {{ .ENV }} {{ .PORTS }}"
@@ -134,9 +135,9 @@ tasks:
   shell:
     desc: Run a shell of an image
     cmds:
-      - "{{ .RUN }} --entrypoint /bin/sh -u {{ .U }} {{ .TAG_VERSION }}"
+      - "{{ .RUN }} --entrypoint /bin/bash -u {{ .U }} -w /home/{{ .U }} {{ .TAG_VERSION }}"
     vars:
-      U: '{{ default "0" .U }}'
+      U: '{{ default "ubuntu" .U }}'
 
   stop:
     desc: Stop a running container
@@ -148,7 +149,7 @@ tasks:
     cmds:
       - docker-compose -f docker-compose.yaml up
     deps:
-      - build:latest
+      - load:latest
 
   vars:
     desc: Print all the variables

@@ -1,17 +1,11 @@
 ---
 version: "2.1"
 services:
-  template:
-    image: nicholaswilde/template:latest
-    container_name: template-default
+  ubuntu-server:
+    image: nicholaswilde/ubuntu-server:latest
+    container_name: ubuntu-server-default
+    environment:
+      - TZ=America/Los_Angeles
     ports:
       - 3000:3000
     restart: unless-stopped
-    volumes:
-      - app:/app
-      - config:/config
-      - defaults:/defaults
-volumes:
-  app:
-  config:
-  defaults:

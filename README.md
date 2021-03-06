@@ -1,12 +1,12 @@
 # Docker Template
-[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/nicholaswilde/template)](https://hub.docker.com/r/nicholaswilde/template)
-[![Docker Pulls](https://img.shields.io/docker/pulls/nicholaswilde/template)](https://hub.docker.com/r/nicholaswilde/template)
-[![GitHub](https://img.shields.io/github/license/nicholaswilde/docker-template)](./LICENSE)
-[![ci](https://github.com/nicholaswilde/docker-template/workflows/ci/badge.svg)](https://github.com/nicholaswilde/docker-template/actions?query=workflow%3Aci)
-[![lint](https://github.com/nicholaswilde/docker-template/workflows/lint/badge.svg?branch=main)](https://github.com/nicholaswilde/docker-template/actions?query=workflow%3Alint)
+[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/nicholaswilde/ubuntu-server)](https://hub.docker.com/r/nicholaswilde/ubuntu-server)
+[![Docker Pulls](https://img.shields.io/docker/pulls/nicholaswilde/ubuntu-server)](https://hub.docker.com/r/nicholaswilde/ubuntu-server)
+[![GitHub](https://img.shields.io/github/license/nicholaswilde/docker-ubuntu-server)](./LICENSE)
+[![ci](https://github.com/nicholaswilde/docker-ubuntu-server/workflows/ci/badge.svg)](https://github.com/nicholaswilde/docker-ubuntu-server/actions?query=workflow%3Aci)
+[![lint](https://github.com/nicholaswilde/docker-ubuntu-server/workflows/lint/badge.svg?branch=main)](https://github.com/nicholaswilde/docker-ubuntu-server/actions?query=workflow%3Alint)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
-A multi-architecture image for [template](https://github.com/nicholaswilde/docker-template).
+A multi-architecture image for [ubuntu-server](https://ubuntu.com/download/server).
 
 ## Architectures
 
@@ -23,13 +23,11 @@ A multi-architecture image for [template](https://github.com/nicholaswilde/docke
 
 ```bash
 $ docker run -d \
-  --name=template-default \
+  --name=ubuntu-server-default \
   -e TZ=America/Los_Angeles `# optional` \
-  -e PUID=1000  `# optional` \
-  -e PGID=1000   `# optional` \
   -p 3000:3000 \
   --restart unless-stopped \
-  nicholaswilde/template
+  nicholaswilde/ubuntu-server
 ```
 
 ### docker-compose
@@ -38,9 +36,9 @@ See [docker-compose.yaml](./docker-compose.yaml).
 
 ## Configuration
 
-|user | uid |
-|----:|:---:|
-| abc | 911 |
+|  user  | password |
+|-------:|:--------:|
+| ubuntu |  ubuntu  |
 
 ## Development
 

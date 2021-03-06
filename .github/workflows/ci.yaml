@@ -19,12 +19,8 @@ on:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Version'
         # Default value if no value is explicitly provided
-        default: '0.1.0'
+        default: '20.10'
         # Input has to be provided for the workflow to run
-        required: true
-      ls:
-        description: 'ls'
-        default: 'ls1'
         required: true
 
 jobs:
@@ -33,7 +29,7 @@ jobs:
     steps:
       -
         name: Get tag
-        run: echo "tag=${{ github.event.inputs.version }}-${{ github.event.inputs.ls }}" >> $GITHUB_ENV
+        run: echo "tag=${{ github.event.inputs.version }}" >> $GITHUB_ENV
       -
         name: Remove docker from the repo name
         run: echo "repo_name=$(echo "${{ github.event.repository.name }}" | sed 's/[^-]*-//')" >> $GITHUB_ENV

@@ -1,4 +1,4 @@
-# Docker Template
+# Docker Ubuntu Server
 [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/nicholaswilde/ubuntu-server)](https://hub.docker.com/r/nicholaswilde/ubuntu-server)
 [![Docker Pulls](https://img.shields.io/docker/pulls/nicholaswilde/ubuntu-server)](https://hub.docker.com/r/nicholaswilde/ubuntu-server)
 [![GitHub](https://img.shields.io/github/license/nicholaswilde/docker-ubuntu-server)](./LICENSE)

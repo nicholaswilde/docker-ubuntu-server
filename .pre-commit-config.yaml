@@ -8,7 +8,7 @@ repos:
         language: docker_image
         types:
           - dockerfile
-        entry: --entrypoint /bin/hadolint hadolint/hadolint:latest --config ./.hadolint.yaml -
+        entry: --platform linux/amd64 --entrypoint /bin/hadolint hadolint/hadolint:latest --config ./.hadolint.yaml -
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.25.0
     hooks:

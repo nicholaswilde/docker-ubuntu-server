@@ -9,8 +9,8 @@ ENV DEBIAN_FRONTEND noninteractive
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
   echo "**** install packages ****" && \
-  apt update && \
-  apt install -y \
+  apt-get update && \
+  apt-get install -y \
     ubuntu-server=1.487 \
     sudo=1.9.9-1ubuntu2 \
     tzdata=2022a-0ubuntu1 && \
@@ -19,7 +19,7 @@ RUN \
   echo "${UBUNTU_USER}:${UBUNTU_PASSWORD}" | chpasswd && \
   usermod -aG sudo "${UBUNTU_USER}" && \
   echo "**** cleanup ****" && \
-  apt clean && \
+  apt-get clean && \
   rm -rf \
     /tmp/* \
     /var/lib/apt/lists/ \

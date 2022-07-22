@@ -9,17 +9,17 @@ ENV DEBIAN_FRONTEND noninteractive
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
   echo "**** install packages ****" && \
-  apt-get update && \
-  apt-get install -y \
-    ubuntu-server=1.459 \
-    sudo=1.9.1-1ubuntu1.1 \
-    tzdata=2021a-0ubuntu0.20.10 && \
+  apt update && \
+  apt install -y \
+    ubuntu-server=1.487 \
+    sudo=1.9.9-1ubuntu2 \
+    tzdata=2022a-0ubuntu1 && \
   echo "**** add user ****" && \
   adduser "${UBUNTU_USER}" && \
   echo "${UBUNTU_USER}:${UBUNTU_PASSWORD}" | chpasswd && \
   usermod -aG sudo "${UBUNTU_USER}" && \
   echo "**** cleanup ****" && \
-  apt-get clean && \
+  apt clean && \
   rm -rf \
     /tmp/* \
     /var/lib/apt/lists/ \
